@@ -1,0 +1,9 @@
+<div>
+  Cart:
+  <app-cart 
+    *ngFor="let product of productsInCart"
+    [product]="product">
+  </app-cart>
+  Total:{{cartTotal}}
+</div>
+  

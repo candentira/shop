@@ -2,8 +2,8 @@ import { ProductEnum } from './product-enum.model';
 
 export class Product {
     constructor(
-        public name: String,
-        public price: Number,
+        public name: string,
+        public price: number,
         public category?: ProductEnum,
         public isAvailable?: boolean
     ) {
