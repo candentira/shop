@@ -1,0 +1,6 @@
+<div ng-if="products">
+  <span>name </span><span>price </span><span>department </span><span>is Available </span>
+  <div *ngFor="let product of products">
+    <app-product [product]="product"></app-product>
+  </div>
+</div>
