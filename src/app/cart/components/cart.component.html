@@ -1,4 +1,7 @@
 <div>
-  <span>{{product.name}} </span>
-  <span>{{product.price}}</span>
+  <span>{{cartItem.product.name}} </span>
+  <span>{{cartItem.product.price}} </span>
+  <button (click)="reduceQuantity(cartItem)">-</button>
+  <span>{{cartItem.quantity}}</span>
+  <button (click)="increaseQuantity(cartItem)">+</button>
 </div>

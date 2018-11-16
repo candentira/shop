@@ -1,5 +1,11 @@
 export enum ProductEnum {
-    Fruits = "FRUITS",
-    Vegetables = "VEGETABLES",
-    Diary = "DIARY"
+    Grocery = "Grocery",
+    Diary = "Diary",
+    Bakery = "Bakery",
+    Butcher = "Butcher",
+    Frozen = "Frozen",
+    Household = "Household",
+    Alcohol = "Alcohol",
+    Tobacco = "Tobacco",
+    Other = "Other"
 }

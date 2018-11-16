@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/app/model/product.model';
 import { ProductService } from 'src/app/products/services/product.service';
 import { CartService } from 'src/app/cart/services/cart.service';
 import { CommunicatorService } from '../../services/communicator.service';
+import { StoreItem } from 'src/app/model/store-item.model';
 
 @Component({
   selector: 'app-product-list',
@@ -10,7 +10,7 @@ import { CommunicatorService } from '../../services/communicator.service';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  products: Array<Product>
+  store: Array<StoreItem>
 
   constructor(
     private productService: ProductService, 
@@ -18,13 +18,15 @@ export class ProductListComponent implements OnInit {
     private communicatorService: CommunicatorService) { }
 
   ngOnInit() {
-    this.products = this.productService.getProducts();
+    this.store = this.productService.getStore();
   }
 
-  addToCart(productToAdd: Product) {
-    productToAdd.isAvailable = !productToAdd.isAvailable;
-    this.cartService.addToCart(productToAdd);
-    this.communicatorService.publishData(productToAdd.price);
-    console.log(`${productToAdd.name} was added to the cart`);
+  addToCart(storeItem: StoreItem) {
+    if (this.productService.isProductInStock(storeItem.product)) {
+      this.productService.buyProduct(storeItem.product);
+      this.cartService.addToCart(storeItem.product);
+      this.communicatorService.addProductToCart(storeItem.product.price);
+      console.log(`${storeItem.product.name} was added to the cart`);
+    }
   }
 }

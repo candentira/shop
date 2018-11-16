@@ -1,8 +1,6 @@
-<div ng-if="products">
-  <span>name </span><span>price </span><span>department </span><span>is Available </span>
-  <app-product
-    *ngFor="let product of products"
-    [product]="product" 
-    (complete)="addToCart($event)">
-  </app-product>
-</div>
+<span>name </span><span>price </span><span>department </span><span>quantity </span>
+<app-product
+  *ngFor="let storeItem of store"
+  [storeItem]="storeItem"
+  (complete)="addToCart($event)">
+</app-product>

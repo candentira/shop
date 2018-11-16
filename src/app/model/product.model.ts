@@ -4,10 +4,9 @@ export class Product {
     constructor(
         public name: string,
         public price: number,
-        public category?: ProductEnum,
-        public isAvailable?: boolean
+        public description?: string,       
+        public category?: ProductEnum
     ) {
-        this.category = category || ProductEnum.Fruits;
-        this.isAvailable = isAvailable || false;
+        this.category = category || ProductEnum.Other;
     }
 }

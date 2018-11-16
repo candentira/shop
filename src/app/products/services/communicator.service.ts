@@ -6,12 +6,11 @@ import { Subject } from 'rxjs';
 })
 export class CommunicatorService {
 
-  private channel = new Subject<number>();
+  private channelTotal = new Subject<number>();
 
-  //Observable string streams
-  public channel$ = this.channel.asObservable();
+  public channelTotal$ = this.channelTotal.asObservable();
 
-  publishData(data: number) {
-    this.channel.next(data);
+  addProductToCart(price: number) {
+    this.channelTotal.next(price);
   }
 }

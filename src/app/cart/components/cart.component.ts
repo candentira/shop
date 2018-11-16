@@ -1,6 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Product } from '../../model/product.model';
-import { CartService } from '../services/cart.service';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { CartItem } from 'src/app/model/cart-item.model';
 
 @Component({
   selector: 'app-cart',
@@ -8,11 +7,22 @@ import { CartService } from '../services/cart.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  @Input() product: Product
+  @Input() cartItem: CartItem
+
+  @Output() reduce: EventEmitter<CartItem> = new EventEmitter<CartItem>();
+  @Output() increase: EventEmitter<CartItem> = new EventEmitter<CartItem>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  reduceQuantity(cartItem: CartItem) {
+    this.reduce.emit(cartItem);
+  }
+
+  increaseQuantity(cartItem: CartItem) {
+    this.increase.emit(cartItem);
   }
 
 }

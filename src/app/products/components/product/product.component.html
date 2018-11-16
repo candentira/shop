@@ -1,7 +1,7 @@
 <div>
-    <span>{{product.name}} </span>
-    <span>{{product.price}} </span>
-    <span>{{product.category}} </span>
-    <span>{{product.isAvailable}} </span>
-    <button (click)="addCart(product)" [disabled]="!product.isAvailable">Add to cart!</button>
+    <span>{{storeItem.product.name}} </span>
+    <span>${{storeItem.product.price}} </span>
+    <span>{{storeItem.product.category}} </span>
+    <span>{{storeItem.quantityInStock}} </span>
+    <button (click)="addCart(storeItem)" [disabled]="storeItem.quantityInStock == 0">Add to cart!</button>
 </div>

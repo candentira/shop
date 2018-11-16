@@ -1,9 +1,12 @@
 <div>
-  Cart:
+  <div>Cart:</div>
   <app-cart 
-    *ngFor="let product of productsInCart"
-    [product]="product">
+    *ngFor="let cartItem of cart"
+    [cartItem]="cartItem"
+    (reduce)="reduceProductQuantity($event)"
+    (increase)="increaseProductQuantity($event)">
   </app-cart>
-  Total:{{cartTotal}}
+  <div>Total:{{cartTotal}}</div>
+  <div>Items in Cart: {{itemsInCart}}</div>
 </div>
   
