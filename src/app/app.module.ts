@@ -6,6 +6,7 @@ import { CartComponent } from './cart/components/cart/cart.component';
 import { ProductComponent } from './products/components/product/product.component';
 import { ProductListComponent } from './products/components/product-list/product-list.component';
 import { CartListComponent } from './cart/components/cart-list/cart-list.component';
+import { SharedModule } from './shared-module/shared.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CartListComponent } from './cart/components/cart-list/cart-list.compone
     CartListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
