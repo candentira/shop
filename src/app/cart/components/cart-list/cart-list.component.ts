@@ -3,7 +3,7 @@ import { CartService } from '../../services/cart.service';
 import { Product } from 'src/app/model/product.model';
 import { CommunicatorService } from 'src/app/products/services/communicator.service';
 import { Subscription } from 'rxjs';
-import { CartItem, CartItem } from 'src/app/model/cart-item.model';
+import { CartItem } from 'src/app/model/cart-item.model';
 import { ProductService } from 'src/app/products/services/product.service';
 
 @Component({
@@ -37,12 +37,16 @@ export class CartListComponent implements OnInit, OnDestroy {
   reduceProductQuantity(cartItem: CartItem) {
     this.cartService.removeFromCart(cartItem.product);
     this.productService.returnProduct(cartItem.product);
+    this.cartTotal -= cartItem.product.price;
+    this.itemsInCart--;
   }
 
   increaseProductQuantity(cartItem: CartItem) {
     if (this.isProductInStock(cartItem)) {
       this.productService.buyProduct(cartItem.product);
       this.cartService.addToCart(cartItem.product);
+      this.cartTotal += cartItem.product.price;
+      this.itemsInCart++;
     }
   }
 
