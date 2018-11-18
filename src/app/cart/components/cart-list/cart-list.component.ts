@@ -1,10 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { CartService } from '../../services/cart.service';
-import { Product } from 'src/app/model/product.model';
-import { CommunicatorService } from 'src/app/products/services/communicator.service';
 import { Subscription } from 'rxjs';
-import { CartItem } from 'src/app/model/cart-item.model';
+
 import { ProductService } from 'src/app/products/services/product.service';
+import { CommunicatorService } from 'src/app/products/services/communicator.service';
+import { CartService } from '../../services/cart.service';
+import { CartItem } from 'src/app/model/cart-item.model';
 
 @Component({
   selector: 'app-cart-list',
